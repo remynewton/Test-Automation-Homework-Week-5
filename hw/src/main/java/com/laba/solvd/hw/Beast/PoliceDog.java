@@ -1,15 +1,41 @@
 package com.laba.solvd.hw.Beast;
 
-import java.util.*;
+import java.util.List;
+import java.util.function.Predicate;
 
 public class PoliceDog extends Beast implements SearchAndRescue, Detection, Patrol, Cadaver {
-    public String breed;
-    protected List<String> trainings;
+    private Breed breed;
+    private List<String> trainings;
 
-    public PoliceDog(String name, String DOB, boolean furry, String breed, List<String> trainings) {
+    public PoliceDog(String name, String DOB, boolean furry, Breed breed, List<String> trainings) {
         super(name, DOB, furry);
         this.breed = breed;
         this.trainings = trainings;
+    }
+
+    public List<String> getTrainings() {
+        return trainings;
+    }
+
+    public void setTrainings(List<String> trainings) {
+        this.trainings = trainings;
+    }
+
+    public Breed getBreed() {
+        return breed;
+    }
+
+    public void setBreed(Breed breed) {
+        this.breed = breed;
+    }
+
+    public static PoliceDog findElement(List<PoliceDog> list, Predicate<PoliceDog> predicate) {
+        for (PoliceDog element : list) {
+            if (predicate.test(element)) {
+                return element;
+            }
+        }
+        return null;
     }
 
     @Override
@@ -46,5 +72,18 @@ public class PoliceDog extends Beast implements SearchAndRescue, Detection, Patr
         } else {
             System.out.println("This dog is not trained for cadaver detection.");
         }
+    }
+
+    public enum Breed {
+        BELGIAN_MALINOIS,
+        BLOODHOUND,
+        BORDER_COLLIE,
+        BOXER,
+        DOBERMAN_PINSCHER,
+        ENGLISH_SPRINGER_SPANIEL,
+        GERMAN_SHEPHERD,
+        LABRADOR_RETRIEVER,
+        OTHER,
+        ROTWEILLER
     }
 }

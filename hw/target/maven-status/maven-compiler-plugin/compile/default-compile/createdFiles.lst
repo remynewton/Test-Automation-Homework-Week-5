@@ -11,10 +11,11 @@ com/laba/solvd/hw/Person/Officer.class
 com/laba/solvd/hw/Case/Crime.class
 com/laba/solvd/hw/Beast/Detection.class
 com/laba/solvd/hw/Case/ICrime.class
+com/laba/solvd/hw/Exception/JailFullException.class
 com/laba/solvd/hw/Person/Person.class
 com/laba/solvd/hw/UnsolvedCases$UnsolvedCasesIterator.class
+com/laba/solvd/hw/Exception/InmateNotFoundException.class
 com/laba/solvd/hw/Beast/Patrol.class
-com/laba/solvd/hw/Jail/Jail$InmateNotFoundException.class
 com/laba/solvd/hw/Beast/PoliceDog.class
 com/laba/solvd/hw/Case/ICrime$Severity.class
 com/laba/solvd/hw/PoliceStation.class
@@ -23,4 +24,3 @@ com/laba/solvd/hw/Jail/IJail.class
 com/laba/solvd/hw/Beast/Cadaver.class
 com/laba/solvd/hw/Case/Crime$Type.class
 com/laba/solvd/hw/Jail/HoldingCell.class
-com/laba/solvd/hw/Jail/Jail$JailFullException.class

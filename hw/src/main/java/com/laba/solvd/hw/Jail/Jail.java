@@ -1,17 +1,16 @@
 package com.laba.solvd.hw.Jail;
 import com.laba.solvd.hw.Person.*;
 import com.laba.solvd.hw.Exception.*;
+import com.laba.solvd.hw.PoliceStation;
+
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.List;
 import java.lang.IllegalArgumentException;
 
 public class Jail implements IJail {
     private ArrayList<Criminal> inmates = new ArrayList<>();
     private int capacity;
-    protected static List<Jail> jails = new ArrayList<>();
     protected static int totalJails;
-
     HoldingCell holdingCell = HoldingCell.getInstance();
 
     public Jail(int capacity) {
@@ -19,16 +18,12 @@ public class Jail implements IJail {
             throw new IllegalArgumentException("Capacity must be greater than zero!");
         }
         this.capacity = capacity;
-        jails.add(this);
-        totalJails = jails.size();
+        PoliceStation.jails.add(this);
+        totalJails = PoliceStation.jails.size();
     }
 
     public static int getTotalJails() {
         return totalJails;
-    }
-
-    public static List<Jail> getJails() {
-        return jails;
     }
 
     @Override
@@ -77,9 +72,9 @@ public class Jail implements IJail {
         scanner.close();
     
         if (input.equals("yes")) {
-            for (Jail jail : jails) {
+            for (Jail jail : PoliceStation.jails) {
                 if (jail.getInmates().contains(criminal)) {
-                    jail.removeInmate(criminal);
+                    jail.inmates.remove(criminal);
                 }
             }
             holdingCell.removeInmate(criminal);

@@ -1,5 +1,6 @@
 package com.laba.solvd.hw;
 import com.laba.solvd.hw.Case.*;
+import com.laba.solvd.hw.Exception.ElementNotFoundException;
 
 import java.util.*;
 
@@ -141,7 +142,16 @@ public class UnsolvedCases<T extends Case> implements List<T> {
 
     @Override
     public T get(int index) {
-        return null;
+        if (index < 0 || index >= size()) {
+            throw new ElementNotFoundException("Invalid index: " + index);
+        }
+
+        Node current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+
+        return current.data;
     }
 
     @Override

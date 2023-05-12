@@ -8,9 +8,9 @@ import java.time.format.DateTimeParseException;
 public class Beast {
     public String name;
     public LocalDate DOB;
-    public String address;
     static private Period age;
     protected boolean furry;
+    protected String breed;
 
     public Beast(String name, String DOB, boolean furry) {
         this.name = name;
